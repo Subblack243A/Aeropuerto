@@ -8,11 +8,10 @@ package aeropuerto;
 public class NodoLlegada {
     NodoLlegada ant;
     NodoLlegada sig;
-    AvionLlegada avionLlegada;
-    public NodoLlegada(AvionLlegada avionLlegada) {
+    String avion;
+    public NodoLlegada(String avionLlegada) {
         this.ant = null;
         this.sig = null;
-        this.avionLlegada = avionLlegada;
+        this.avion = avionLlegada;
     }
-    
 }

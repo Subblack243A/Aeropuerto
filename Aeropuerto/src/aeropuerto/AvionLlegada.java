@@ -4,6 +4,8 @@
  */
 package aeropuerto;
 
+import javax.management.openmbean.ArrayType;
+
 /**
  *
  * @author osfel
@@ -56,4 +58,9 @@ public class AvionLlegada extends AAvion{
         this.horaLlegada = horaLlegada;
     }
     
+    public String toString(){
+        String s = "-------------------------------------------------\n";
+        s = "ID :\t" + getId() +"\nNum. Vuelo :\t" + getNumeroVuelo() + "\nAerolínea :\t" + getAerolinea()+ "\nOrigen :\t" + getOrigen() + "\nDestino :\t" + getDestino() + "\nHora de Salida :\t"+getHoraSalida()+"\nHora de Llegada :\t"+getHoraLlegada()+"\nNum. Puestos:\t"+getNumeroPuestos()+"\nJefe de Tripulación :\t"+getNomJefe()+"\n-------------------------------------------------\n";
+        return s;
+    }
 }
