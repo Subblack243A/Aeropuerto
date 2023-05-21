@@ -2,8 +2,25 @@
 package aeropuerto;
 
 
-public class AvionSalida {
-    String origen, destino, horaSalida, horaLlegada;
+public final class AvionSalida extends AAvion{
+    private String origen, destino, horaSalida, horaLlegada;
+
+    public AvionSalida(int id, int numVuelo, String aerolinea, String horaSalida, String horaLlegada, String nomJefe) {
+        this.id = id;
+        this.numeroVuelo = numVuelo;
+        this.aerolinea = aerolinea;
+        setOrigen();
+        setDestino();
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
+        setNumeroPuestos();
+        this.nomJefe = nomJefe;
+    }
+    public String toString(){
+        String s = "-------------------------------------------------\n";
+        s = "ID :\t" + getId() +"\nNum. Vuelo :\t" + getNumeroVuelo() + "\nAerolínea :\t" + getAerolinea()+ "\nOrigen :\t" + getOrigen() + "\nDestino :\t" + getDestino() + "\nHora de Salida :\t"+getHoraSalida()+"\nHora de Llegada :\t"+getHoraLlegada()+"\nNum. Puestos:\t"+getNumeroPuestos()+"\nJefe de Tripulación :\t"+getNomJefe()+"\n-------------------------------------------------\n";
+        return s;
+    }
     
     public String getOrigen() {
         return origen;
@@ -49,4 +66,5 @@ public class AvionSalida {
     public void setHoraLlegada(String horaLlegada) {
         this.horaLlegada = horaLlegada;
     }
+    
 }

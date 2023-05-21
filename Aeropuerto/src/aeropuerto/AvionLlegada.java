@@ -1,15 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package aeropuerto;
 
-/**
- *
- * @author osfel
- */
-public class AvionLlegada extends AAvion{
-    String origen, destino, horaSalida, horaLlegada;
+public final class AvionLlegada extends AAvion{
+    
+    protected String origen, destino, horaSalida, horaLlegada;
+    
+    public AvionLlegada(int id, int numVuelo, String aerolinea, String horaSalida, String horaLlegada, String nomJefe) {
+        this.id = id;
+        this.numeroVuelo = numVuelo;
+        this.aerolinea = aerolinea;
+        setOrigen();
+        setDestino();
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
+        setNumeroPuestos();
+        this.nomJefe = nomJefe;
+    }
 
     public String getOrigen() {
         return origen;
@@ -56,4 +62,9 @@ public class AvionLlegada extends AAvion{
         this.horaLlegada = horaLlegada;
     }
     
+    public String toString(){
+        String s = "-------------------------------------------------\n";
+        s = "ID :\t" + getId() +"\nNum. Vuelo :\t" + getNumeroVuelo() + "\nAerolínea :\t" + getAerolinea()+ "\nOrigen :\t" + getOrigen() + "\nDestino :\t" + getDestino() + "\nHora de Salida :\t"+getHoraSalida()+"\nHora de Llegada :\t"+getHoraLlegada()+"\nNum. Puestos:\t"+getNumeroPuestos()+"\nJefe de Tripulación :\t"+getNomJefe()+"\n-------------------------------------------------\n";
+        return s;
+    }
 }
