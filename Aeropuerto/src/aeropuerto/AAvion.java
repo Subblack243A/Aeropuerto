@@ -2,8 +2,8 @@ package aeropuerto;
 
 
 public class AAvion {
-    int id, numeroVuelo, numeroPuestos;
-    String nomJefe, aerolinea;
+    protected int id, numeroVuelo, numeroPuestos;
+    protected String nomJefe, aerolinea;
 
     public int getId() {
         return id;
