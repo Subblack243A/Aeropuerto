@@ -6,14 +6,14 @@ public class Cola {
     Nodo col = null;
     Nodo ant = null;
 
-    public void push(String avion) {
+    public void push(String avion, int id) {
         Nodo nuevo;
         if (cab == null) {
-            cab = new Nodo(avion);
+            cab = new Nodo(avion, id);
             ant = cab;
             col = cab;
         } else {
-            nuevo = new Nodo(avion);
+            nuevo = new Nodo(avion, id);
             nuevo.ant = ant;
             ant.sig = nuevo;
             ant = ant.sig;
@@ -35,6 +35,28 @@ public class Cola {
         }
     }
 
+    public void popId(int id){
+        Nodo p = cab, ant, sig;
+        while(p != null){
+            if(p.id == id){
+                if(p.sig == null){
+                    cab = null;
+                    System.out.println("Cola Vacia");
+                }else{
+                    if(p.ant == null){
+                        cab = cab.sig;
+                        cab.ant = null;
+                    }else{
+                        ant = p.ant;
+                        sig = p.sig;
+                        ant.sig = sig;
+                        sig.ant = ant;
+                    }
+                }
+            }
+            p = p.sig;
+        }
+    }
     public void mostrar() {
         Nodo p = cab;
         String s = "";

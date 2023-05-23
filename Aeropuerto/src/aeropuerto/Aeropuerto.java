@@ -1,18 +1,17 @@
 package aeropuerto;
 
 import java.util.Scanner;
-
+public static Arbol arbolito = new Arbol();
 public class Aeropuerto {
     private static  int a = 0;
     private static String h = "am";
     public static void main(String[] args) {
         Cola salida = new Cola(), llegada = new Cola();
-        Arbol arbolito = new Arbol();
         Scanner sc = new Scanner(System.in);
         int op = 0;
-        while(op != 8){
+        while(op != 9){
             System.out.println("-------------------------------------------------");
-            System.out.println("MENU\n1. Agregar Avion de Llegada\n2. Agregar Avion de Salida\n3. Eliminar Avion Llegada\n4. Eliminar Avion Salida \n5. Mostrar Cola Llegada\n6. Mostrar Cola Salida\n7. Buscar Informacion de Avion\n8. Cerrar Programa\n-------------------------------------------------");
+            System.out.println("MENU\n1. Agregar Avion de Llegada\n2. Agregar Avion de Salida\n3. Eliminar Avion en Cola de Llegada\n4. Eliminar Avion en Cola de Salida \n5. Mostrar Cola Llegada\n6. Mostrar Cola Salida\n7. Buscar Informacion de Avion\n8. ELiminar avion por ID\n9. Cerrar Programa\n-------------------------------------------------");
             System.out.println("OPCION: ");
             op = sc.nextInt();
             switch(op){
@@ -41,8 +40,15 @@ public class Aeropuerto {
                 case 7:
                     busqueda();
                     break;
-                case 8: 
-                    if (op == 8) {
+                case 8:
+                    System.out.println("Ingrese el ID del vuelo que desea eliminar");
+                    int id = sc.nextInt();
+                    arbolito.eliminar(id);
+                    salida.popId(id);
+                    System.out.println("Eliminado con Exito");
+                    break;
+                case 9: 
+                    if (op == 9) {
                         break;
                     }
                     break;
@@ -65,7 +71,6 @@ public class Aeropuerto {
         String nomJefe = sc.next();
         AvionLlegada avLlegada = new AvionLlegada(id, numVuelo, aerolinea, hora(), nomJefe);
         avLlegada.setHoraSalida(a, h);
-        arbolito.insertar(id,avLlegada.toString());
         return avLlegada.toString();
     }
     
@@ -81,6 +86,7 @@ public class Aeropuerto {
         String nomJefe = sc.next();
         AvionSalida avSalida = new AvionSalida(id, numVuelo, aerolinea, hora(), nomJefe);
         avSalida.setHoraLlegada(a, h);
+        arbolito.insertar(id, avSalida.toString());
         return avSalida.toString();
     }
     

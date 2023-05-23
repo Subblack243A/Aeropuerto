@@ -64,7 +64,7 @@ public class Arbol {
         }
     }
     
-    public void eliminar(int dato) {
+    public String eliminar(int dato) {
         raiz = eliminarAvl(raiz, dato);
     }
     
