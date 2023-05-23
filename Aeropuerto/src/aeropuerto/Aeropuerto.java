@@ -7,6 +7,7 @@ public class Aeropuerto {
     private static String h = "am";
     public static void main(String[] args) {
         Cola salida = new Cola(), llegada = new Cola();
+        Arbol arbolito = new Arbol();
         Scanner sc = new Scanner(System.in);
         int op = 0;
         while(op != 8){
@@ -64,6 +65,7 @@ public class Aeropuerto {
         String nomJefe = sc.next();
         AvionLlegada avLlegada = new AvionLlegada(id, numVuelo, aerolinea, hora(), nomJefe);
         avLlegada.setHoraSalida(a, h);
+        arbolito.insertar(id,avLlegada.toString());
         return avLlegada.toString();
     }
     
@@ -83,7 +85,9 @@ public class Aeropuerto {
     }
     
     public static void busqueda(){
-        
+        Scanner sc = new Scanner(System.in);
+        int id = sc.nextInt();
+        arbolito.busca(id);
     }
     
     public static String hora(){
